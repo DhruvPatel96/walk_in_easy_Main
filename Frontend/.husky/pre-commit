@@ -3,4 +3,4 @@
 
 cd Frontend/
 
-npm run precommit
+npm.cmd run precommit
