@@ -1,38 +1,28 @@
-import { Button, Label, TextInput } from 'flowbite-react';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { signupFields } from '../../constants/formFields';
-
-const fields = signupFields;
+import { Button } from 'flowbite-react';
+import React, { useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthHeader from '../../components/auth/header';
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    const goto = useCallback((path: string) => navigate(path), [navigate]);
     return (
         <div className="w-96 px-6 py-12 flex flex-col space-y-4">
-            <span className="flex">
-                Welcome to &nbsp;
-                <p className="text-primary font-semibold">Walk In Easy</p>
-            </span>
-            <h2 className="text-5xl">Sign up</h2>
-            {fields.map(field => (
-                <div>
-                    <div className="block">
-                        <Label
-                            htmlFor={field.labelFor}
-                            value={field.labelText}
-                        />
-                    </div>
-                    <TextInput
-                        id={field.id}
-                        type={field.type}
-                        placeholder={field.placeholder}
-                        color="primary"
-                        required={field.isRequired}
-                    />
-                </div>
-            ))}
+            <AuthHeader prompt="Sign up" />
             <div>
-                <Button color="info" className="w-full text-white">
-                    Sign up
+                <Button
+                    color="info"
+                    onClick={() => goto('client')}
+                    className="w-full text-white">
+                    Sign up as a client
+                </Button>
+            </div>
+            <div>
+                <Button
+                    color="info"
+                    onClick={() => goto('clinic')}
+                    className="w-full text-white">
+                    Sign up as a clinic
                 </Button>
             </div>
             <div>

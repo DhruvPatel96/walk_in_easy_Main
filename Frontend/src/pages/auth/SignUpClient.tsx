@@ -1,33 +1,33 @@
-import { Button, Label, TextInput } from 'flowbite-react';
-import { Formik, useFormik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Label, TextInput } from 'flowbite-react';
+
+import { clientSignupFields } from '../../constants/formFields';
 import AuthHeader from '../../components/auth/header';
-import { loginFields } from '../../constants/formFields';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-const fields = loginFields;
+const fields = clientSignupFields;
 
-const loginSchema = loginFields.reduce((result: any, field) => {
+const clientSignupSchema = clientSignupFields.reduce((result: any, field) => {
     result[field.id] = field.validation;
     return result;
 }, {});
 
-const Login = () => {
-    console.log(loginSchema);
+const SignUpClient = () => {
     const formik = useFormik({
-        initialValues: loginFields.reduce((result: any, field) => {
+        initialValues: clientSignupFields.reduce((result: any, field) => {
             result[field.id] = '';
             return result;
         }, {}),
-        validationSchema: yup.object().shape(loginSchema),
+        validationSchema: yup.object().shape(clientSignupSchema),
         onSubmit: values => {
             console.log(values);
         },
     });
     return (
-        <div className="w-full md:w-96 px-6 py-12 flex flex-col space-y-4">
-            <AuthHeader prompt="Sign in" />
+        <div className="w-96 px-6 py-12 flex flex-col space-y-4">
+            <AuthHeader prompt="Sign up client" />
             {fields.map(field => (
                 <div key={field.id}>
                     <div className="block">
@@ -60,18 +60,17 @@ const Login = () => {
                 </div>
             ))}
             <div>
-                <Button
-                    color="info"
-                    onClick={() => formik.handleSubmit()}
-                    className="w-full text-white">
-                    Sign in
+                <Button color="info" className="w-full text-white">
+                    Sign up
                 </Button>
             </div>
             <div>
-                <p className="text-xs text-gray-500">No Account?</p>
-                <Link to={'../signup'} replace>
+                <p className="text-xs text-gray-500">
+                    Already have an Account?
+                </p>
+                <Link to={'../login'} replace>
                     <p className="text-xs text-primary">
-                        Sign up for a new Account
+                        Sign in to your Account
                     </p>
                 </Link>
             </div>
@@ -79,4 +78,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUpClient;

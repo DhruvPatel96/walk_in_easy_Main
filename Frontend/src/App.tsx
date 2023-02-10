@@ -1,7 +1,7 @@
 import { Flowbite, ThemeProps } from 'flowbite-react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Views from './Views';
+import Views from './Routes';
 
 const theme: ThemeProps = {
     theme: {
