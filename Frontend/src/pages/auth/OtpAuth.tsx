@@ -2,7 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
 import 'firebase/firestore';
-import 'C:/Users/simra/Desktop/MAC/ADT/walk_in_easy_Main/Frontend/src/otp.css';
+import '../../otp.css';
 import React, { useEffect } from 'react';
 declare global {
     interface Window {
