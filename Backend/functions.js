@@ -43,15 +43,16 @@ function signupClinic(clinicInfo, callback, connection) {
     city,
     province,
     zipCode,
-    country
+    country,
+    password
   } = clinicInfo;
 
   // Construct a SQL query to insert the clinic data into the 'clinics' table
-  const sql = `INSERT INTO clinics (clinicName, phoneNumber, email, website, hours, serviceDescription, fee, streetAddress, city, province, zipCode, country)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO clinics (clinicName, phoneNumber, email, website, hours, serviceDescription, fee, streetAddress, city, province, zipCode, country, password)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
   // Execute the query with the clinic data as parameters
-  connection.query(sql, [clinicName, phoneNumber, email, website, hours, serviceDescription, fee, streetAddress, city, province, zipCode, country], (error, results) => {
+  connection.query(sql, [clinicName, phoneNumber, email, website, hours, serviceDescription, fee, streetAddress, city, province, zipCode, country, password], (error, results) => {
     if (error) {
       callback(error, null);
     } else {

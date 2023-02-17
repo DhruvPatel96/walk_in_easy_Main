@@ -92,8 +92,28 @@ app.post('/signupClinic', (req, res) => {
   },connection);
 });
 
+// Route for clinic signin
+app.post('/signinClinic', (req, res) => {
+  const { email, password } = req.body;
+  connection.query('SELECT * FROM clinics WHERE email = ? AND password = ?', [email, password], (err, result) => {
+    if (err) {
+      console.log('Error retrieving user from database: ' + err);
+      res.sendStatus(500);
+      return;
+    }
+    if (result.length === 0) {
+      console.log('Invalid email or password!');
+      res.sendStatus(401);
+      return;
+    }
+    console.log('Clinic signed in successfully!');
+    res.sendStatus(200);
+  });
+});
+
+
 // Route for customer search
-app.get('/customers', (req, res) => {
+app.get('/', (req, res) => {
   const { name } = req.query;
   connection.query('SELECT * FROM customers WHERE name LIKE ?', `%${name}%`, (err, result) => {
     if (err) {
