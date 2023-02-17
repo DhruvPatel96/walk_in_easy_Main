@@ -39,10 +39,12 @@ app.post('/signupPatient', (req, res) => {
 
   // Call the 'signupPatient' function to insert the patient data into the database
   signupPatient.signupPatient(patientInfo, (error, results) => {
-    if (error) {
-      console.error(error);
+
+    if (error.code == 'ER_DUP_ENTRY') {
+      res.status(409).send('User already registered!');
+    }else if(error){
       res.status(500).send('Error signing up patient');
-    } else {
+    }else {
       res.status(200).send('Patient signed up successfully');
     }
   },connection);
