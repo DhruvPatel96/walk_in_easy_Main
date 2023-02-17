@@ -113,15 +113,15 @@ app.post('/signinClinic', (req, res) => {
 
 
 // Route for customer search
-app.get('/', (req, res) => {
-  const { name } = req.query;
-  connection.query('SELECT * FROM customers WHERE name LIKE ?', `%${name}%`, (err, result) => {
+app.get('/clinics', (req, res) => {
+  const { clinicName } = req.body;
+  connection.query('SELECT * FROM clinics WHERE clinicName LIKE ?', `%${clinicName}%`, (err, result) => {
     if (err) {
-      console.log('Error retrieving customers from database: ' + err);
+      console.log('Error retrieving clinics from database: ' + err);
       res.sendStatus(500);
       return;
     }
-    console.log('Customers retrieved successfully!');
+    console.log('Clinic retrieved successfully!');
     res.status(200).json(result);
   });
 });
