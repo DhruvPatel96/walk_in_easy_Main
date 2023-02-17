@@ -40,7 +40,7 @@ app.post('/signupPatient', (req, res) => {
   // Call the 'signupPatient' function to insert the patient data into the database
   signupPatient.signupPatient(patientInfo, (error, results) => {
 
-    if (error.code == 'ER_DUP_ENTRY') {
+    if (error && error.code == 'ER_DUP_ENTRY') {
       res.status(409).send('User already registered!');
     }else if(error){
       res.status(500).send('Error signing up patient');
@@ -51,9 +51,9 @@ app.post('/signupPatient', (req, res) => {
 });
 
 // Route for user signin
-app.post('/signin', (req, res) => {
+app.post('/signinPatient', (req, res) => {
   const { email, password } = req.body;
-  connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, result) => {
+  connection.query('SELECT * FROM patients WHERE email = ? AND password = ?', [email, password], (err, result) => {
     if (err) {
       console.log('Error retrieving user from database: ' + err);
       res.sendStatus(500);
@@ -67,6 +67,29 @@ app.post('/signin', (req, res) => {
     console.log('User signed in successfully!');
     res.sendStatus(200);
   });
+});
+
+// Route for clinic signup
+const signupClinic = require('./functions');
+
+// Handle POST requests to the '/signupPatient' endpoint
+app.post('/signupClinic', (req, res) => {
+  // Extract patient data from the request body
+  const clinicInfo = req.body;
+  console.log(clinicInfo);
+
+  // Call the 'signupPatient' function to insert the patient data into the database
+  signupClinic.signupClinic(clinicInfo, (error, results) => {
+
+    if (error && error.code == 'ER_DUP_ENTRY') {
+      res.status(409).send('Clinic already registered!');
+    }else if(error){
+      console.log(error);
+      res.status(500).send('Error signing up clinic');
+    }else {
+      res.status(200).send('Clinic signed up successfully');
+    }
+  },connection);
 });
 
 // Route for customer search
