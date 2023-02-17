@@ -4,6 +4,7 @@ import Login from './pages/auth/Login';
 import SignUp from './pages/auth/SignUp';
 import SignUpClient from './pages/auth/SignUpClient';
 import SignUpClinic from './pages/auth/SignUpClinic';
+import OTPAuth from './pages/auth/OtpAuth';
 
 const Views = () => {
     return (
@@ -13,6 +14,7 @@ const Views = () => {
                 <Route path="signup" element={<SignUp />} />
                 <Route path="signup/client" element={<SignUpClient />} />
                 <Route path="signup/clinic" element={<SignUpClinic />} />
+                <Route path="login/otpAuth" element={<OTPAuth />} />
                 <Route index element={<Navigate to="login" />} />
             </Route>
             <Route path="/" element={<Navigate to="/auth" />} />
