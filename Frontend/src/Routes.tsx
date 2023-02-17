@@ -16,13 +16,14 @@ const Views = () => {
                 <Route path="signup/client" element={<SignUpClient />} />
                 <Route path="signup/clinic" element={<SignUpClinic />} />
                 <Route path="login/otpAuth" element={<OTPAuth />} />
+
                 <Route index element={<Navigate to="login" />} />
             </Route>
-            <Route path="/" element={<Navigate to="/auth" />} />
             <Route
-                path="auth/login/BookAppointment"
+                path="auth/login/bookAppointment"
                 element={<BookAppointment />}
             />
+            <Route path="/" element={<Navigate to="/auth" />} />
         </Routes>
     );
 };

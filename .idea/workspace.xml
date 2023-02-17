@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d7775cc0-e4d3-44d2-88e1-d96f6644cdb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/auth/BookAppointment.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/auth/BookAppointment.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/pages/auth/OtpAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/auth/OtpAuth.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +33,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LXJ3st5SrYSUcabQ8hz4iAskbD" />
   <component name="ProjectViewState">
@@ -116,7 +119,7 @@
       <workItem from="1676389868633" duration="5180000" />
       <workItem from="1676592694989" duration="2878000" />
       <workItem from="1676595622071" duration="1937000" />
-      <workItem from="1676597746223" duration="14688000" />
+      <workItem from="1676597746223" duration="19863000" />
     </task>
     <servers />
   </component>

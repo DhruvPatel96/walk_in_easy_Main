@@ -1,41 +1,39 @@
-
 .title {
-    background:  rgb(0 137 237);
+    background: rgb(0 137 237);
     /* rgb(29 78 216); */
-   
+
     /* display:flex; */
     color: #ffffff;
     width: 100%;
     padding: 20px 0px;
     text-align: center;
-  }
-  .title h1 {
+}
+.title h1 {
     padding: 0px;
     margin: 0px;
-    font-size: 40px
-  }
-  
-  .input__wrapper {
+    font-size: 40px;
+}
+
+.input__wrapper {
     margin: 20px;
     text-align: center;
-    border-color: rgb(29 78 216);
-  }
-  .srch{
+    border-color: rgb(0 137 237);
+}
+.srch {
     border: px solid rgb(0 137 237);
-    background:  rgb(0 137 237);
+    background: rgb(0 137 237);
     /* rgb(29 78 216) */
-
-  }
-  .input__wrapper input {
+}
+.input__wrapper input {
     border: 3px solid rgb(29 78 216);
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 18px;
-  }
-  .input__wrapper input:focus {
+}
+.input__wrapper input:focus {
     outline: none;
-  }
-  .input__wrapper button {
+}
+.input__wrapper button {
     background-color: rgb(29 78 216);
     color: white;
     padding: 8px 15px;
@@ -45,25 +43,25 @@
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
-  }
-  
-  .body__item {
+}
+
+.body__item {
     text-align: center !important;
     border: 1px solid lightgray;
     padding: 20px;
     width: 500px;
     margin: 20px auto;
-  }
-  /* .button{
+}
+/* .button{
     
     background-color: light blue;
     border-radius:w-full text-blue
   } */
 
-  .notFound {
+.notFound {
     width: 500px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid lightgray;
     text-align: center;
-  }
+}

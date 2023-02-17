@@ -61,7 +61,8 @@ function OTPAuth() {
             (
                 document.getElementsByClassName('n-conf')[0] as HTMLElement
             ).style.display = 'none';
-            window.location.href = './';
+
+            window.location.href = './bookAppointment';
         } catch (error) {
             console.log('otp verification failed', error);
             (
@@ -114,13 +115,13 @@ function OTPAuth() {
     );
 }
 const firebaseConfig = {
-    apiKey: 'AIzaSyD8oB-2aJleoJQTvy-_yDs4UJzEILieSUk',
-    authDomain: 'otpauth-fce0a.firebaseapp.com',
-    projectId: 'otpauth-fce0a',
-    storageBucket: 'otpauth-fce0a.appspot.com',
-    messagingSenderId: '1069424128369',
-    appId: '1:1069424128369:web:bb1d57791a988b966c46d0',
-    measurementId: 'G-S2ZK35FV2P',
+    apiKey: 'AIzaSyAkPGLb0hk49_ltqnuzyx76506YZ1A7xL4',
+    authDomain: 'walk-in-easy.firebaseapp.com',
+    projectId: 'walk-in-easy',
+    storageBucket: 'walk-in-easy.appspot.com',
+    messagingSenderId: '824505522690',
+    appId: '1:824505522690:web:2c1e27ec3198f32942a51b',
+    measurementId: 'G-BXJFLW2E2S',
 };
 
 firebase.initializeApp(firebaseConfig);

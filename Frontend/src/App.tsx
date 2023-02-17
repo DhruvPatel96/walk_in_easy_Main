@@ -16,7 +16,7 @@ const theme: ThemeProps = {
 const App = () => {
     return (
         <Flowbite theme={theme}>
-            <div className="min-h-full h-screen w-screen flex items-center justify center">
+            <div className="min-h-full h-screen w-screen items-center justify center">
                 <BrowserRouter>
                     <Views />
                 </BrowserRouter>
