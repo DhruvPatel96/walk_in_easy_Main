@@ -25,26 +25,27 @@ connection.connect((err) => {
 });
 
 // Configure the body parser middleware to parse incoming requests
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 // Route for user signup
-const signupPatient = require('./functions/signupPatient');
+const signupPatient = require('./functions');
 
-// Handle POST requests to the '/patients' endpoint
-router.post('/signupPatient', (req, res) => {
+// Handle POST requests to the '/signupPatient' endpoint
+app.post('/signupPatient', (req, res) => {
   // Extract patient data from the request body
   const patientInfo = req.body;
+  console.log(patientInfo);
 
   // Call the 'signupPatient' function to insert the patient data into the database
-  signupPatient(patientInfo, (error, results) => {
+  signupPatient.signupPatient(patientInfo, (error, results) => {
     if (error) {
       console.error(error);
       res.status(500).send('Error signing up patient');
     } else {
       res.status(200).send('Patient signed up successfully');
     }
-  });
+  },connection);
 });
 
 // Route for user signin
