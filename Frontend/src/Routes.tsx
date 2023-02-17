@@ -5,6 +5,7 @@ import SignUp from './pages/auth/SignUp';
 import SignUpClient from './pages/auth/SignUpClient';
 import SignUpClinic from './pages/auth/SignUpClinic';
 import OTPAuth from './pages/auth/OtpAuth';
+import BookAppointment from './pages/auth/BookAppointment';
 
 const Views = () => {
     return (
@@ -18,6 +19,10 @@ const Views = () => {
                 <Route index element={<Navigate to="login" />} />
             </Route>
             <Route path="/" element={<Navigate to="/auth" />} />
+            <Route
+                path="auth/login/BookAppointment"
+                element={<BookAppointment />}
+            />
         </Routes>
     );
 };

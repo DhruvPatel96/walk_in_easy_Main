@@ -4,6 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/firestore';
 import '../../otp.css';
 import React, { useEffect } from 'react';
+import { Button } from 'flowbite-react';
 declare global {
     interface Window {
         recaptchaVerifier: firebase.auth.RecaptchaVerifier | undefined;
@@ -85,9 +86,13 @@ function OTPAuth() {
                 <div id="sender">
                     <input type="text" id="number" placeholder="+982..." />
                     <div id="recaptcha-container" />
-                    <button id="send" value="send" onClick={phoneAuth}>
+                    <Button
+                        id="send"
+                        className="text-white"
+                        value="send"
+                        onClick={phoneAuth}>
                         Send
-                    </button>
+                    </Button>
                 </div>
                 <div id="verifier" style={{ display: 'none' }}>
                     <input
