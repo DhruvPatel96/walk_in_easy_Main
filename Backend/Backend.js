@@ -43,6 +43,7 @@ app.post('/signupPatient', (req, res) => {
     if (error && error.code == 'ER_DUP_ENTRY') {
       res.status(409).send('User already registered!');
     }else if(error){
+      console.log(error);
       res.status(500).send('Error signing up patient');
     }else {
       res.status(200).send('Patient signed up successfully');
