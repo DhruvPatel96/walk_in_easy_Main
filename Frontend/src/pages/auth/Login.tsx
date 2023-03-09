@@ -1,7 +1,7 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import { Formik, useFormik } from 'formik';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthHeader from '../../components/auth/header';
 import { loginFields } from '../../constants/formFields';
 import * as yup from 'yup';
@@ -15,6 +15,8 @@ const loginSchema = loginFields.reduce((result: any, field) => {
 
 const Login = () => {
     console.log(loginSchema);
+    const navigate = useNavigate();
+    const goto = useCallback((path: string) => navigate(path), [navigate]);
     const formik = useFormik({
         initialValues: loginFields.reduce((result: any, field) => {
             result[field.id] = '';
@@ -62,7 +64,7 @@ const Login = () => {
             <div>
                 <Button
                     color="info"
-                    onClick={() => formik.handleSubmit()}
+                    onClick={() => goto('otpAuth')}
                     className="w-full text-white">
                     Sign in
                 </Button>
