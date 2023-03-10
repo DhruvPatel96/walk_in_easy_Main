@@ -1,7 +1,7 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import { Formik, useFormik } from 'formik';
-import React, { useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import AuthHeader from '../../components/auth/header';
 import { loginFields } from '../../constants/formFields';
 import * as yup from 'yup';
@@ -15,8 +15,6 @@ const loginSchema = loginFields.reduce((result: any, field) => {
 
 const Login = () => {
     console.log(loginSchema);
-    const navigate = useNavigate();
-    const goto = useCallback((path: string) => navigate(path), [navigate]);
     const formik = useFormik({
         initialValues: loginFields.reduce((result: any, field) => {
             result[field.id] = '';
@@ -25,6 +23,26 @@ const Login = () => {
         validationSchema: yup.object().shape(loginSchema),
         onSubmit: values => {
             console.log(values);
+            fetch('http://localhost:3000/signinPatient', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log("login successful"); // redirect to dashboard on successful login
+          } else {
+            // setError(data.message); // set error message if login fails
+            console.log("error");
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        //   setError('Something went wrong. Please try again.'); // set error message if there's an unexpected error
+        });
         },
     });
     return (
@@ -64,7 +82,7 @@ const Login = () => {
             <div>
                 <Button
                     color="info"
-                    onClick={() => goto('otpAuth')}
+                    onClick={() => formik.handleSubmit()}
                     className="w-full text-white">
                     Sign in
                 </Button>

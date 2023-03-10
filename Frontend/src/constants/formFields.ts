@@ -28,8 +28,8 @@ const websiteValidation = yup
 const loginFields = [
     {
         labelText: 'Email address',
-        labelFor: 'email-address',
-        id: 'email-address',
+        labelFor: 'email',
+        id: 'email',
         name: 'email',
         type: 'email',
         autoComplete: 'email',
@@ -53,9 +53,9 @@ const loginFields = [
 const clientSignupFields = [
     {
         labelText: 'Full Name',
-        labelFor: 'name',
-        id: 'name',
-        name: 'name',
+        labelFor: 'fullName',
+        id: 'fullName',
+        name: 'fullName',
         type: 'text',
         autoComplete: 'name',
         isRequired: true,
@@ -64,8 +64,8 @@ const clientSignupFields = [
     },
     {
         labelText: 'Email address',
-        labelFor: 'email-address',
-        id: 'email-address',
+        labelFor: 'email',
+        id: 'email',
         name: 'email',
         type: 'email',
         autoComplete: 'email',
@@ -75,9 +75,9 @@ const clientSignupFields = [
     },
     {
         labelText: 'Address',
-        labelFor: 'address',
-        id: 'address',
-        name: 'address',
+        labelFor: 'streetAddress',
+        id: 'streetAddress',
+        name: 'streetAddress',
         type: 'text',
         autoComplete: 'address',
         isRequired: true,
@@ -86,9 +86,9 @@ const clientSignupFields = [
     },
     {
         labelText: 'Phone number',
-        labelFor: 'phone',
-        id: 'phone',
-        name: 'phone',
+        labelFor: 'phoneNumber',
+        id: 'phoneNumber',
+        name: 'phoneNumber',
         type: 'tel',
         autoComplete: 'phone',
         isRequired: true,
@@ -125,7 +125,7 @@ const clinicSignupFields = [
     {
         labelText: 'Clinic Name',
         labelFor: 'name',
-        id: 'name',
+        id: 'clinicName',
         name: 'name',
         type: 'text',
         autoComplete: 'name',
@@ -136,7 +136,7 @@ const clinicSignupFields = [
     {
         labelText: 'Phone number',
         labelFor: 'phone',
-        id: 'phone',
+        id: 'phoneNumber',
         name: 'phone',
         type: 'tel',
         autoComplete: 'phone',
@@ -169,7 +169,7 @@ const clinicSignupFields = [
     {
         labelText: 'Address',
         labelFor: 'address',
-        id: 'address',
+        id: 'streetAddress',
         name: 'address',
         type: 'text',
         autoComplete: 'address',
