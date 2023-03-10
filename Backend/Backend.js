@@ -4,10 +4,19 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const jwt = require('jsonwebtoken');
 const secretKey = 'mySecretKey';
+const cors = require('cors');
 
 // Initialize express app and set port number
 const app = express();
 const port = process.env.PORT || 3000;
+
+//cors error
+app.use(cors({
+  origin: 'http://example.com',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // Configure the MySQL connection
 const connection = mysql.createConnection({
