@@ -32,12 +32,18 @@ const Login = () => {
 
                 body: JSON.stringify(values),
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        console.log('login successful'); // redirect to dashboard on successful login
-                        navigate('/auth/login/bookAppointment');
-                    } else {
+                // .then(response => response.json())
+                // .then(data => {
+                    // if (data.success) {
+                        // console.log('login successful'); // redirect to dashboard on successful login
+                        // navigate('/auth/login/bookAppointment');
+                    // } 
+                    .then(response => {
+                        if (response.status === 200) {
+                            console.log('login successful');
+                            navigate('/auth/login/bookAppointment');
+                        }
+                    else {
                         // setError(data.message); // set error message if login fails
                         console.log('error');
                     }
